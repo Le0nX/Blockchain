@@ -24,7 +24,12 @@ public:
 		static Block* mineBlock(const Block* lastBlock, uint64_t data);
 
 		std::string get_hash() const;
+
 private:
+
+		inline static std::string Block::calcHash(const time_t& time,
+												  const std::string& prev_hash,
+												  const uint64_t& data);
 		time_t 			_timestamp;
 		uint64_t 		_data;
 		std::string 	_hash;

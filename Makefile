@@ -7,6 +7,7 @@ LIBS =
 TARGET =	X
 
 $(TARGET):	$(OBJS)
+	rm -rf bin/ *.o
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
 	mkdir bin/
 	mv $(TARGET) bin/
