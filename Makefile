@@ -10,6 +10,7 @@ $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
 	mkdir bin/
 	mv $(TARGET) bin/
+	rm *.o
 
 all:	$(TARGET)
 
