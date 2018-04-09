@@ -10,10 +10,7 @@
 
 int main(void) {
 
-	Block* first = Block::genesis();
-	first->info();
-
-	Block* second = Block::mineBlock(first,2);
+	Block* second = Block::mineBlock(Block::genesis(),2);
 	second->info();
 	return 0;
 }
