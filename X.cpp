@@ -13,7 +13,7 @@ int main(void) {
 	Block* first = Block::genesis();
 	first->info();
 
-	Block second(0,0,"none","none");
-	second.info();
+	Block* second = Block::mineBlock(first,2);
+	second->info();
 	return 0;
 }

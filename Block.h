@@ -20,6 +20,10 @@ public:
 		void info() const;
 
 		static Block* genesis();
+
+		static Block* mineBlock(const Block* lastBlock, uint64_t data);
+
+		std::string get_hash() const;
 private:
 		time_t 			_timestamp;
 		uint64_t 		_data;

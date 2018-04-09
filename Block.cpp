@@ -18,11 +18,22 @@ void Block::info() const {
 }
 
 Block* Block::genesis() {
-	time_t curr_time;
-	time(&curr_time);
-	std::string prev_hash = "none";
-	std::string hash = "SS898--1-2asdf";
-	uint64_t data = 1;
+	time_t curr_time = time(&curr_time);
+	const std::string prev_hash = "none";
+	const std::string hash = "SS898--1-2asdf";
+	const uint64_t data = 1;
+
 	return new Block(curr_time,data,hash, prev_hash);
 }
 
+std::string Block::get_hash() const {
+	return this->_hash;
+}
+
+Block* Block::mineBlock(const Block* lastBlock, uint64_t data) {
+	time_t curr_time = time(&curr_time);
+	const std::string prev_hash = lastBlock->get_hash();
+	const std::string hash = "todo hash counting";
+
+	return new Block(curr_time,data,hash, prev_hash);
+}
