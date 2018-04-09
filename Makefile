@@ -8,8 +8,10 @@ TARGET =	X
 
 $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
+	mkdir bin/
+	mv $(TARGET) bin/
 
 all:	$(TARGET)
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -rf $(OBJS) bin/

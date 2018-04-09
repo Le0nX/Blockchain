@@ -19,6 +19,7 @@ public:
 
 		void info() const;
 
+		static Block* genesis();
 private:
 		time_t 			_timestamp;
 		uint64_t 		_data;
