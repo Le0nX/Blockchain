@@ -8,6 +8,8 @@
 #include "Block.h"
 #include <iostream>
 #include <time.h>
+#include "crypto/sha256.h"
+
 
 void Block::info() const {
 	std::cout << "Timestamp: " << this->_timestamp << std::endl;
@@ -30,10 +32,11 @@ std::string Block::get_hash() const {
 	return this->_hash;
 }
 
+
 Block* Block::mineBlock(const Block* lastBlock, uint64_t data) {
 	time_t curr_time = time(&curr_time);
 	const std::string prev_hash = lastBlock->get_hash();
-	const std::string hash = "todo hash counting";
+	const std::string hash = Block::calcHash(curr_time, prev_hash, data);
 
 	return new Block(curr_time,data,hash, prev_hash);
 }

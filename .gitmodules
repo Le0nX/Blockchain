@@ -1,0 +1,3 @@
+[submodule "build_toolzzz"]
+	path = build_toolzzz
+	url = https://github.com/Le0nX/build_toolzzz.git
