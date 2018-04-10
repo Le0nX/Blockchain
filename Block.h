@@ -11,6 +11,8 @@
 #include <ctime>
 #include <string>
 #include <stdint.h>
+#include "crypto/sha256.h"
+#include <sstream>
 
 class Block{
 public:
@@ -27,9 +29,19 @@ public:
 
 private:
 
-		inline static std::string Block::calcHash(const time_t& time,
-												  const std::string& prev_hash,
-												  const uint64_t& data);
+		inline static std::string calcHash(const time_t& time,
+										   const std::string& prev_hash,
+										   const uint64_t& data) {
+
+				std::stringstream ss;
+				ss << time << prev_hash << data;
+
+				std::string result = ss.str();
+				return sha256(result);
+
+		}
+
+
 		time_t 			_timestamp;
 		uint64_t 		_data;
 		std::string 	_hash;
