@@ -13,6 +13,7 @@
 #include <stdint.h>
 #include "sha256.h"
 #include <sstream>
+#include <memory>
 
 /**
  * Класс блока сети.
