@@ -1,0 +1,14 @@
+install: make get-deps
+
+# Enable C++ support
+language: cpp
+
+# Compiler selection
+compiler:
+  - gcc
+  
+# Build steps
+script:
+  - make clean
+  - make all
+ 
