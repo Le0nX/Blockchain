@@ -3,9 +3,12 @@
 Hackathon MIPT
 
 ## Building project:
+```
 git clone --recursive https://github.com/XROBOTICS/Blockchain/
 cd Blockchain
 git submodule update --init --recursive
-
+```
+```
 make clean
 make all
+```
