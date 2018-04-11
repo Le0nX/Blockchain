@@ -4,3 +4,6 @@
 [submodule "AndroidApp"]
 	path = AndroidApp
 	url = https://github.com/komochek32/AndroidApp.git
+[submodule "web"]
+	path = web
+	url = https://github.com/XROBOTICS/web.git
