@@ -21,10 +21,11 @@ BFLAGS += -Os
 #Сборка сабмейкфайлов
 all: .obj/x_seed
 	@echo -Building $(TARGET) project
-	@echo ДИМООООООООООООООООООН
 	@make all -j4 --makefile=main_sources.mk
 	@echo -Building Crypto Module
 	@make all -j4 --makefile=crypto/makefile
+	@echo -Building src folder
+	@make all -j4 --makefile=src/makefile
 	@echo Executing linker
 	@make all --makefile=build_toolzzz/linker.mk
 	
