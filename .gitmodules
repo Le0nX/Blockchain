@@ -7,3 +7,6 @@
 [submodule "web"]
 	path = web
 	url = https://github.com/XROBOTICS/web.git
+[submodule "web_server"]
+	path = web_server
+	url = https://github.com/Le0nX/web_server.git
