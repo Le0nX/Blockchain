@@ -26,6 +26,8 @@ all: .obj/x_seed
 	@make all -j4 --makefile=crypto/makefile
 	@echo -Building src folder
 	@make all -j4 --makefile=src/makefile
+	@echo -Building HTTP Server
+	@make all -j4 --makefile=web_server/makefile
 	@echo Executing linker
 	@make all --makefile=build_toolzzz/linker.mk
 	

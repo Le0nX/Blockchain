@@ -4,6 +4,7 @@ Hackathon MIPT
 
 ## Building project:
 ```
+sudo apt-get install libboost-all-dev
 git clone --recursive https://github.com/XROBOTICS/Blockchain/
 cd Blockchain
 git submodule update --init --recursive
