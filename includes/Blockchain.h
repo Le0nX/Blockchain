@@ -18,7 +18,7 @@ public:
 
 	void addBlock(const std::vector<std::string>& data);
 
-	bool isValidChain(const BlockChain& chain);
+	bool isValidChain(const std::vector <Block*> &chain);
 
 private:
 	std::vector <Block*> _blockchain;

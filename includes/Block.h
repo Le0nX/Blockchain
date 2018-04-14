@@ -52,10 +52,15 @@ public:
 		 */
 		static Block* mineBlock(const Block* lastBlock, std::vector<std::string> data);
 
+		static std::string generateHash(const Block* block);
 		/**
 		 * Геттер на хеш блока из приватной секции.
 		 */
 		std::string get_hash() const;
+
+		std::string get_last_hash() const;
+
+		time_t get_timestamp() const;
 
 		/**
 		 * Геттер на данные блока.

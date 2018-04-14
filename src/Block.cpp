@@ -33,6 +33,13 @@ std::string Block::get_hash() const {
 	return this->_hash;
 }
 
+std::string Block::get_last_hash() const {
+	return _last_hash;
+}
+
+time_t Block::get_timestamp() const {
+	return _timestamp;
+}
 
 Block* Block::mineBlock(const Block* lastBlock, std::vector<std::string> data) {
 	time_t curr_time = time(&curr_time); // получаем текущее время
@@ -41,6 +48,10 @@ Block* Block::mineBlock(const Block* lastBlock, std::vector<std::string> data) {
 
 	/* генерируем новый блок */
 	return new Block(curr_time,data,hash, prev_hash);
+}
+
+std::string Block::generateHash(const Block* block) {
+	return Block::calcHash(block->get_timestamp(),block->get_last_hash(), block->get_data());
 }
 
 std::vector<std::string> Block::get_data() const {
