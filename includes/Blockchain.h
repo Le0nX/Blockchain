@@ -16,9 +16,11 @@ class BlockChain {
 public:
 	BlockChain();
 
-	void addBlock(const uint64_t& data);
+	void addBlock(const std::vector<std::string>& data);
 
+	bool isValidChain(const std::vector <Block*> &chain);
 
+	std::vector <Block*> get_chain() const;
 private:
 	std::vector <Block*> _blockchain;
 };
