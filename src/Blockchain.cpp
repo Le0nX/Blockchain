@@ -13,8 +13,11 @@ BlockChain::BlockChain() {
 	_blockchain.push_back(Block::genesis());
 }
 
-void BlockChain::addBlock(const uint64_t& data) {
+void BlockChain::addBlock(const std::vector<std::string>& data) {
 	_blockchain.push_back(Block::mineBlock(this->_blockchain[_blockchain.size()-1], data));
 }
 
-
+bool BlockChain::isValidChain(const BlockChain& chain) {
+	(void) chain;
+	return true;
+}

@@ -10,11 +10,13 @@
 
 #include <ctime>
 #include <string>
+#include <vector>
 #include <stdint.h>
 #include "sha256.h"
 #include <sstream>
 #include <memory>
 
+#include <iostream>
 /**
  * Класс блока сети.
  */
@@ -27,7 +29,7 @@ public:
 		 * \param[in]	hash 		Хеш самого блока.
 		 * \param[in]	last_hash	Хеш предыдущего блока.
 		 */
-		Block(time_t timestamp, uint64_t data, std::string hash, std::string last_hash):
+		Block(time_t timestamp, std::vector<std::string> data, std::string hash, std::string last_hash):
 			_timestamp(timestamp), _data(data), _hash(hash), _last_hash(last_hash) {}
 
 		/**
@@ -45,13 +47,16 @@ public:
 		 * \param[in]	lastBlock	Указатель на предыдущий блока
 		 * \param[in]	data		Данные для нового блока
 		 */
-		static Block* mineBlock(const Block* lastBlock, uint64_t data);
+		static Block* mineBlock(const Block* lastBlock, std::vector<std::string> data);
 
 		/**
 		 * Геттер на хеш блока из приватной секции.
 		 */
 		std::string get_hash() const;
 
+		std::vector<std::string> get_data() const;
+
+		std::string print_data() const;
 private:
 
 		/**
@@ -62,10 +67,16 @@ private:
 		 */
 		inline static std::string calcHash(const time_t& time,
 										   const std::string& prev_hash,
-										   const uint64_t& data) {
+										   const std::vector<std::string>& data) {
+				std::string temp;
+				for (auto str : data) {
+					temp += str + ", ";
+					std::cout << temp << std::endl;
+				}
+				//std::string temp = print_data();
 
 				std::stringstream ss;
-				ss << time << prev_hash << data;
+				ss << time << prev_hash << temp;
 
 				std::string result = ss.str();
 				return sha256(result);
@@ -73,10 +84,10 @@ private:
 		}
 
 
-		time_t 			_timestamp;		///< Время генерации блока
-		uint64_t 		_data;			///< Данные блока
-		std::string 	_hash;			///< Хеш текущего блока
-		std::string 	_last_hash;		///< Хеш предыдущего блока
+		time_t 						_timestamp;		///< Время генерации блока
+		std::vector<std::string> 	_data;			///< Данные блока
+		std::string 				_hash;			///< Хеш текущего блока
+		std::string 				_last_hash;		///< Хеш предыдущего блока
 };
 
 

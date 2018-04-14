@@ -10,8 +10,12 @@
 #include "httpServer.h"
 
 int main(void) {
+	std::string x = "data";
+	std::vector<std::string> data;
+	data.push_back(x);
 
-	Block* second = Block::mineBlock(Block::genesis(),2);
+
+	Block* second = Block::mineBlock(Block::genesis(),data);
 	second->info();
 	return 0;
 }
