@@ -55,3 +55,16 @@ std::string Block::print_data() const {
 	}
 	return temp;
 }
+
+json Block::toJSON() {
+
+	json j;
+	j["hash"] = this->_hash;
+	j["previousHash"] = this->_last_hash;
+	j["time"] = this->_timestamp;
+	j["data"] = this->_data;
+
+	return j;
+}
+
+

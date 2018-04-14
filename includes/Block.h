@@ -16,7 +16,10 @@
 #include <sstream>
 #include <memory>
 
-#include <iostream>
+// JSON
+#include "json.hpp"
+using json = nlohmann::json;
+
 /**
  * Класс блока сети.
  */
@@ -54,9 +57,16 @@ public:
 		 */
 		std::string get_hash() const;
 
+		/**
+		 * Геттер на данные блока.
+		 */
 		std::vector<std::string> get_data() const;
-
+		/**
+		 * Выводит данные...
+		 */
 		std::string print_data() const;
+
+		json toJSON();
 private:
 
 		/**
@@ -71,7 +81,6 @@ private:
 				std::string temp;
 				for (auto str : data) {
 					temp += str + ", ";
-					std::cout << temp << std::endl;
 				}
 				//std::string temp = print_data();
 
