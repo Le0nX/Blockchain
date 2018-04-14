@@ -29,9 +29,9 @@ int main(void) {
 	chain->addBlock(data);
 	chain->addBlock(data);
 
-	//Подменяем данные в блоке. Проверяем работу метода isValidChain, который проверяет всю цепь.
-	chain->_blockchain[1]->_data[0] = "wn";
-	std::cout << chain->isValidChain(chain->get_chain());
+//	//Подменяем данные в блоке. Проверяем работу метода isValidChain, который проверяет всю цепь.
+//	chain->_blockchain[1]->_data[0] = "wn";
+//	std::cout << chain->isValidChain(chain->get_chain());
 
 	return 0;
 }
