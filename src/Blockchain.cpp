@@ -38,3 +38,16 @@ bool BlockChain::isValidChain(const std::vector <Block*> &chain) {
 
 	return true;
 }
+
+void BlockChain::replaceChain(const std::vector <Block*> &new_chain) {
+	if (new_chain.size() <= _blockchain.size()) {
+		return;//Записать в логи ошибку
+	} else if (!isValidChain(new_chain)) {
+		return; //запись в лог.
+	}
+
+	//Запись в лог, что заменяем цепь.
+	_blockchain = new_chain;
+}
+
+

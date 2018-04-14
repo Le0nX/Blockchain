@@ -20,6 +20,8 @@ public:
 
 	bool isValidChain(const std::vector <Block*> &chain);
 
+	void replaceChain(const std::vector <Block*> &chain);
+
 	std::vector <Block*> get_chain() const;
 private:
 	std::vector <Block*> _blockchain;
