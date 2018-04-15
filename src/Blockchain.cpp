@@ -55,7 +55,12 @@ std::string BlockChain::toJSON() {
 	json j;
 	j["length"] = this->_blockchain.size();
 	for (size_t i = 0; i < this->_blockchain.size(); i++){
-		j["data"][i] = this->_blockchain[i]->toJSON();
+		j["Block"][i] = this->_blockchain[i]->toJSON();
 	}
 	return j.dump();
 }
+
+std::string BlockChain::JSON_of_last_block() const {
+	return _blockchain.back()->toJSON();
+}
+

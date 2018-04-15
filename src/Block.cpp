@@ -24,7 +24,9 @@ Block* Block::genesis() {
 	const std::string prev_hash = "none";
 	/* Рандомные данные для первого блока. */
 	const std::string hash = "SS898--1-2asdf10234jasdfas-0i412-==faf";
-	const std::vector<std::string> data;
+	std::vector<std::string> data;
+	const std::string genesisss = "Genesis";
+	data.push_back(genesisss);
 
 	return new Block(curr_time,data,hash, prev_hash);
 }
@@ -67,7 +69,7 @@ std::string Block::print_data() const {
 	return temp;
 }
 
-json Block::toJSON() {
+std::string Block::toJSON() {
 
 	json j;
 	j["hash"] = this->_hash;
@@ -75,7 +77,7 @@ json Block::toJSON() {
 	j["time"] = this->_timestamp;
 	j["data"] = this->_data;
 
-	return j;
+	return j.dump();
 }
 
 

@@ -71,7 +71,7 @@ public:
 		 */
 		std::string print_data() const;
 
-		json toJSON();
+		std::string toJSON();
 private:
 
 		/**
@@ -102,7 +102,6 @@ private:
 		std::string 				_hash;			///< Хеш текущего блока
 		std::string 				_last_hash;		///< Хеш предыдущего блока
 };
-
 
 
 #endif /* BLOCK_H_ */

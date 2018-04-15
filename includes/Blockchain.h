@@ -24,7 +24,18 @@ public:
 
 	std::vector <Block*> get_chain() const;
 
+	std::string JSON_of_last_block() const;
+
 	std::string toJSON();
+
+	std::string gen_ID() {
+			const std::string base = "DB67ZA";
+			static uint64_t counter = 0;
+			std::stringstream ss;
+			ss << counter++;
+
+			return std::string(base + ss.str());
+		}
 private:
 	std::vector <Block*> _blockchain;
 };
