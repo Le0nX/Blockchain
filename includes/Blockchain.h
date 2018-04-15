@@ -23,6 +23,8 @@ public:
 	void replaceChain(const std::vector <Block*> &chain);
 
 	std::vector <Block*> get_chain() const;
+
+	std::string toJSON();
 private:
 	std::vector <Block*> _blockchain;
 };

@@ -50,4 +50,12 @@ void BlockChain::replaceChain(const std::vector <Block*> &new_chain) {
 	_blockchain = new_chain;
 }
 
+std::string BlockChain::toJSON() {
 
+	json j;
+	j["length"] = this->_blockchain.size();
+	for (size_t i = 0; i < this->_blockchain.size(); i++){
+		j["data"][i] = this->_blockchain[i]->toJSON();
+	}
+	return j.dump();
+}

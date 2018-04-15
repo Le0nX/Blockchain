@@ -97,7 +97,6 @@ private:
 
 		}
 
-
 		time_t 						_timestamp;		///< Время генерации блока
 		std::vector<std::string> 	_data;			///< Данные блока
 		std::string 				_hash;			///< Хеш текущего блока
